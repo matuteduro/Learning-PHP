@@ -14,6 +14,8 @@ define("NOMBRE","MATIAS");
 
 // Imprimir constante
 
+// Si no tiene signo $ es una constante
+
 echo NOMBRE;
 
 // NOMBRE="Pedro"; // No me va a dejar porque la constante no lo permite
