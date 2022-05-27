@@ -13,6 +13,27 @@ if($_POST){
     echo "<br/>" .$resta;
     echo "<br/>" .$dividir;
     echo "<br/>" .$multiplicar;
+
+    if ($valorA==$valorB){
+
+        echo "El valor de A es igual al valor de B <br/>";
+
+        if($valorA==4){
+            echo "El valor es 4 <br/>";
+
+        }  
+        if($valorA==5){
+            echo "El valor es 5 <br/>";
+        }
+
+
+    }
+
+    if(($valorA==$valorB) && ($valorA==4)){
+        echo "El valor de A es igual a B y es un numero 4";
+
+    }
+
 }
 
 ?>
@@ -26,7 +47,7 @@ if($_POST){
     <title>Operadores aritmeticos</title>
 </head>
 <body>
-    <form action="ejercicio7.php" method="post">
+    <form action="ejercicio10.php" method="post">
     Valor A:
     <input type="text" name="valorA" id="">
     <br/>
