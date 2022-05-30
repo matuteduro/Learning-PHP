@@ -2,5 +2,12 @@
  
  session_start();
 
- echo $_SESSION["usuario"]." status: ".$_SESSION["status"];
+if ( isset ($_SESSION["usuario"])){
+
+ echo "Usuario: ".$_SESSION["usuario"]." status: ".$_SESSION["status"];
+
+}
+else{
+    echo "No hay datos";
+}
  ?>
