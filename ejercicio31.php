@@ -5,6 +5,7 @@ $chkphp="";
 $chkhtml="";
 $chkcss="";
 $rdgLenguaje="";
+$lsAnime="";
 
 if ($_POST){
 
@@ -15,8 +16,9 @@ if ($_POST){
     $rdgLenguaje= (isset($_POST['chkhtml'])=="si")?"checked":"";
     $rdgLenguaje= (isset($_POST['chkcss'])=="si")?"checked":"";
 
+    $lsAnime=(isset($_POST['lsAnime']))?$_POST['lsAnime']:"";
 
-    
+   
 
 }
 
@@ -32,25 +34,43 @@ if ($_POST){
 </head>
 <body>
     <?php if($_POST){?>
-    <strong>Hola</strong>: <?php echo $txtNombre;"<br/>"?>
+    <strong>Hola: </strong><?php echo $txtNombre;?>
     <br/>
-    <strong>Le Gusta</strong>: <?php echo $rdgLenguaje;?>
+    <strong>Tu lenguaje es: </strong><?php echo $rdgLenguaje;?>
+    <br/>
+    <strong>Estas Aprendiendo: </strong>
+    - <?php echo ($chkphp=="checked")?"php":"";?><br/>
+    - <?php echo ($chkhtml=="checked")?"html":"";?><br/>
+    - <?php echo ($chkcss=="checked")?"css":"";?><br/>
+    <br/>
+    <strong>Tu lenguaje es: </strong>
+    <?php echo $lsAnime;?>
+    <br/>
+
     <?php } ?>
+
     <form action="ejercicio31.php" method="post">
     Nombre:<br/>
     <input value="<?php echo $txtNombre;?>" type="text" name="txtNombre" id="">
     <br/>
     Te gusta?:<br/>
-    <br/>PHP: <input type="radio" <?php echo ($rdgLenguaje=="php")?"checked":""?> name="lenguaje" value="php" id=""><br/>
-    <br/>HTML: <input type="radio" <?php echo ($rdgLenguaje=="html")?"checked":""?>name="lenguaje" value="html" id=""><br/>
-    <br/>CSS: <input type="radio" <?php echo ($rdgLenguaje=="css")?"checked":""?> name="lenguaje" value="css" id=""><br/>
+    <br/>php: <input type="radio" <?php echo ($rdgLenguaje=="php")?"checked":"";?> name="lenguaje" value="php" id=""><br/>
+    <br/>html: <input type="radio" <?php echo ($rdgLenguaje=="html")?"checked":"";?>name="lenguaje" value="html" id=""><br/>
+    <br/>css: <input type="radio" <?php echo ($rdgLenguaje=="css")?"checked":"";?> name="lenguaje" value="css" id=""><br/>
 
     Estas aprendiendo..<br/>
-    <br/><input type="checkbox"  <?php echo $chkphp ?> name="chkphp" value="Si" id="">
-    <br/><input type="checkbox" <?php echo $chkhtml ?> name="chkhtml" value="Si" id="">
-    <br/><input type="checkbox" <?php echo $chkcss ?> name="chkcss" value="Si" id="">
+    <br/>php:<input type="checkbox"  <?php echo $chkphp;?> name="chkphp" value="Si" id="">
+    <br/>html:<input type="checkbox" <?php echo $chkhtml; ?> name="chkhtml" value="Si" id="">
+    <br/>css:<input type="checkbox" <?php echo $chkcss; ?> name="chkcss" value="Si" id="">
 
-    <input type="submit" value="Enviar Informacion">
+    Que anime te gusta...?<br/>
+    <select name="lsAnime" id="" ><br/>
+        <option value="">[Ninguna Serie]</option>
+        <option value="onepiece" <?php echo ($lsAnime=="onepiece")?"selected":"";?>>[One Piece]</option>
+        <option value="bleach" <?php echo ($lsAnime=="bleach")?"selected":"";?>>[Bleach]</option>
+        <option value="naruto" <?php echo ($lsAnime=="naruto")?"selected":"";?>>[Naruto]</option>
+
+        <br/><input type="submit" value="Enviar Informacion"><br/>
 
 
     </form>
