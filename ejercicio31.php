@@ -1,12 +1,22 @@
 <?php
 
 $txtNombre="";
-if ($_POST){
-
+$chkphp="";
+$chkhtml="";
+$chkcss="";
 $rdgLenguaje="";
+
+if ($_POST){
 
     $txtNombre= (isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
     $rdgLenguaje= (isset($_POST['lenguaje']))?$_POST['lenguaje']:"";
+
+    $rdgLenguaje= (isset($_POST['chkphp'])=="si")?"checked":"";
+    $rdgLenguaje= (isset($_POST['chkhtml'])=="si")?"checked":"";
+    $rdgLenguaje= (isset($_POST['chkcss'])=="si")?"checked":"";
+
+
+    
 
 }
 
@@ -34,6 +44,11 @@ $rdgLenguaje="";
     <br/>PHP: <input type="radio" <?php echo ($rdgLenguaje=="php")?"checked":""?> name="lenguaje" value="php" id=""><br/>
     <br/>HTML: <input type="radio" <?php echo ($rdgLenguaje=="html")?"checked":""?>name="lenguaje" value="html" id=""><br/>
     <br/>CSS: <input type="radio" <?php echo ($rdgLenguaje=="css")?"checked":""?> name="lenguaje" value="css" id=""><br/>
+
+    Estas aprendiendo..<br/>
+    <br/><input type="checkbox"  <?php echo $chkphp ?> name="chkphp" value="Si" id="">
+    <br/><input type="checkbox" <?php echo $chkhtml ?> name="chkhtml" value="Si" id="">
+    <br/><input type="checkbox" <?php echo $chkcss ?> name="chkcss" value="Si" id="">
 
     <input type="submit" value="Enviar Informacion">
 
