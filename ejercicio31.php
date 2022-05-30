@@ -3,7 +3,11 @@
 $txtNombre="";
 if ($_POST){
 
+$rdgLenguaje="";
+
     $txtNombre= (isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
+    $rdgLenguaje= (isset($_POST['lenguaje']))?$_POST['lenguaje']:"";
+
 }
 
 
@@ -18,11 +22,18 @@ if ($_POST){
 </head>
 <body>
     <?php if($_POST){?>
-    <strong>Hola</strong>: <?php echo $txtNombre;?>
+    <strong>Hola</strong>: <?php echo $txtNombre;"<br/>"?>
+    <br/>
+    <strong>Le Gusta</strong>: <?php echo $rdgLenguaje;?>
     <?php } ?>
     <form action="ejercicio31.php" method="post">
-
+    Nombre:<br/>
     <input value="<?php echo $txtNombre;?>" type="text" name="txtNombre" id="">
+    <br/>
+    Te gusta?:<br/>
+    <br/>PHP: <input type="radio" <?php echo ($rdgLenguaje=="php")?"checked":""?> name="lenguaje" value="php" id=""><br/>
+    <br/>HTML: <input type="radio" <?php echo ($rdgLenguaje=="html")?"checked":""?>name="lenguaje" value="html" id=""><br/>
+    <br/>CSS: <input type="radio" <?php echo ($rdgLenguaje=="css")?"checked":""?> name="lenguaje" value="css" id=""><br/>
 
     <input type="submit" value="Enviar Informacion">
 
