@@ -6,17 +6,26 @@ $chkhtml="";
 $chkcss="";
 $rdgLenguaje="";
 $lsAnime="";
-
+$txtComentario="";
 if ($_POST){
 
     $txtNombre= (isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
     $rdgLenguaje= (isset($_POST['lenguaje']))?$_POST['lenguaje']:"";
 
-    $rdgLenguaje= (isset($_POST['chkphp'])=="si")?"checked":"";
-    $rdgLenguaje= (isset($_POST['chkhtml'])=="si")?"checked":"";
-    $rdgLenguaje= (isset($_POST['chkcss'])=="si")?"checked":"";
+    $chkphp= (isset($_POST['chkphp'])=="si")?"checked":"";
+    $chkhtml= (isset($_POST['chkhtml'])=="si")?"checked":"";
+    $chkcss= (isset($_POST['chkcss'])=="si")?"checked":"";
 
     $lsAnime=(isset($_POST['lsAnime']))?$_POST['lsAnime']:"";
+
+    $txtComentario= (isset($_POST['txtComentario']))?$_POST['txtComentario']:"";
+
+// Instruccion de insertar
+
+//rutina de algun calculo
+
+//aqui puedes alterar esos valores para mostrar diferentes valores modificados
+    
 
    
 
@@ -43,9 +52,9 @@ if ($_POST){
     - <?php echo ($chkhtml=="checked")?"html":"";?><br/>
     - <?php echo ($chkcss=="checked")?"css":"";?><br/>
     <br/>
-    <strong>Tu lenguaje es: </strong>
-    <?php echo $lsAnime;?>
+    <strong>Tu anime favorito es: </strong><?php echo $lsAnime;?>
     <br/>
+    <strong>Tu mensaje es: </strong><?php echo $txtComentario?>
 
     <?php } ?>
 
@@ -59,17 +68,22 @@ if ($_POST){
     <br/>css: <input type="radio" <?php echo ($rdgLenguaje=="css")?"checked":"";?> name="lenguaje" value="css" id=""><br/>
 
     Estas aprendiendo..<br/>
-    <br/>php:<input type="checkbox"  <?php echo $chkphp;?> name="chkphp" value="Si" id="">
-    <br/>html:<input type="checkbox" <?php echo $chkhtml; ?> name="chkhtml" value="Si" id="">
-    <br/>css:<input type="checkbox" <?php echo $chkcss; ?> name="chkcss" value="Si" id="">
+    <br/>php:<input type="checkbox"  <?php echo $chkphp;?> name="chkphp" value="si" id="">
+    <br/>html:<input type="checkbox" <?php echo $chkhtml; ?> name="chkhtml" value="si" id="">
+    <br/>css:<input type="checkbox" <?php echo $chkcss; ?> name="chkcss" value="si" id="">
 
-    Que anime te gusta...?<br/>
+    <br/>Que anime te gusta...?<br/>
     <select name="lsAnime" id="" ><br/>
         <option value="">[Ninguna Serie]</option>
         <option value="onepiece" <?php echo ($lsAnime=="onepiece")?"selected":"";?>>[One Piece]</option>
         <option value="bleach" <?php echo ($lsAnime=="bleach")?"selected":"";?>>[Bleach]</option>
-        <option value="naruto" <?php echo ($lsAnime=="naruto")?"selected":"";?>>[Naruto]</option>
+        <option value="naruto" <?php echo ($lsAnime=="naruto")?"selected":"";?>>[Naruto]</option><br/>
 
+        <br/> Tienes alguna duda? <br/>
+
+        <br/><textarea name="txtComentario" id="" cols="30" rows="10"></textarea>
+        <? echo $txtComentario?>
+        <br/>
         <br/><input type="submit" value="Enviar Informacion"><br/>
 
 
