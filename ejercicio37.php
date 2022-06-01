@@ -9,6 +9,7 @@
 <body>
 
     <?php require('ejercicio37_1.php'); ?>
+    <?php echo "Hola, estoy en la pagina principal";?>
     
 </body>
 </html>

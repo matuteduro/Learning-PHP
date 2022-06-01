@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php include 'ejercicio36_1.php'; ?>
+    <?php echo "Hola, estoy en la pagina principal";?>
 
 
 
