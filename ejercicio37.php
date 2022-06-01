@@ -7,9 +7,8 @@
     <title>Sitio Web</title>
 </head>
 <body>
-    <?php include 'ejercicio36_1.php'; ?>
 
-
-
+    <?php require('ejercicio37_1.php'); ?>
+    
 </body>
 </html>
