@@ -1,15 +1,19 @@
 <?php 
-
+session_start();
     if($_POST){
 
-        if(($_POST['user']=="matuteduro") && ($_POST['password']=="12345") ){
+        if(($_POST['user']=="matute") && ($_POST['password']=="12345") ){
+        $_SESSION['login']=true ;
         
+
         header("location:index.php");
 
     }else{
         echo "<script> alert('Usuario o contraseña incorrecta'); </script>";
     }
-    }
+}
+
+
 ?>
 
 <!doctype html>
