@@ -19,7 +19,10 @@ $objConexion= new conexion();
 $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL,'$nombre', '$imagen', '$descripcion');";
 
 $objConexion->ejecutar($sql);
+
+header("location:portfolio.php");
 }
+
 
 if($_GET){
     $id=$_GET['borrar'];
@@ -29,6 +32,9 @@ if($_GET){
 
     $sql="DELETE FROM `proyectos` WHERE `proyectos`.`id` =".$_GET['borrar'];
     $objConexion->ejecutar($sql);
+
+    header("location:portfolio.php");
+
     
 }
 
@@ -49,12 +55,12 @@ $proyectos=$objConexion->consultar("SELECT * FROM `proyectos`");
 <div class="card-body">
 <form action="portfolio.php" method="post" enctype="multipart/form-data">
 
-Nombre del proyecto: <input class="form-control" type="text" name="nombre" id="">
+Nombre del proyecto: <input required class="form-control" type="text" name="nombre" id="">
 <br/>
-Imagen del proyecto: <input class="form-control" type="file" name="archivo" id="">
+Imagen del proyecto: <input required class="form-control" type="file" name="archivo" id="">
 <br/>
 Descripcion:
-<textarea class="form-control" name="descripcion" id="" rows="3"></textarea>
+<textarea required class="form-control" name="descripcion" id="" rows="3"></textarea>
 <br/>
 
 <input class="btn btn-success" type="submit" value="Enviar Proyecto">
