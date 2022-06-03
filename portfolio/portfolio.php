@@ -1,11 +1,20 @@
 <?php include("header.php"); ?>
-<?php include("connect.php");?>
+<?php include("conexion.php");?>
 <?php
-$objconnect= new connect();
 
-$sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, 'Proyecto 1', 'imagen1.jpg', 'Es uno de los primeros proyectos');";
+if($_POST){
+print_r($_POST);
+$nombre = $_POST['nombre'];
+$objConexion= new conexion();
 
-$objconnect->ejecutar($sql);
+$sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL,'.$nombre.', '', 'Es uno de los primeros proyectos');";
+
+$objConexion->ejecutar($sql);
+}
+
+$objConexion= new conexion();
+$proyectos=$objConexion->consultar("SELECT * FROM `proyectos`");
+
 ?>
 <br/>
 
@@ -18,11 +27,11 @@ $objconnect->ejecutar($sql);
     Datos del Proyecto
 </div>
 <div class="card-body">
-<form action="portfolio.php" method="post">
+<form action="portfolio.php" method="post" enctype="multipart/form-data">
 
-Nombre del proyecto: <input class="form-control" type="text" name="name" id="">
+Nombre del proyecto: <input class="form-control" type="text" name="nombre" id="">
 <br/>
-Imagen del proyecto: <input class="form-control" type="file" name="file" id="">
+Imagen del proyecto: <input class="form-control" type="file" name="archivo" id="">
 <br/>
 
 <input class="btn btn-success" type="submit" value="Enviar Proyecto">
@@ -40,19 +49,19 @@ Imagen del proyecto: <input class="form-control" type="file" name="file" id="">
             <th>ID</th>
             <th>Nombre</th>
             <th>Imagen</th>
+            <th>Descripcion</th>
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($proyectos as $proyecto){?>
         <tr>
-            <td>3</td>
-            <td>Aplicacion Web</td>
-            <td>Imagen.jpg</td>
+        <td><?php echo $proyecto['id'] ?></td>
+        <td><?php echo $proyecto['nombre'] ?></td>
+        <td><?php echo $proyecto['imagen'] ?></td>
+        <td><?php echo $proyecto['descripcion'] ?></td>
+        <td> <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a> </td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+    <?php } ?>
     </tbody>
 </table>
 

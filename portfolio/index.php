@@ -7,6 +7,7 @@
         <p class="lead">Este es un portfolio privado</p>
         <hr class="my-2">
         <p>Mas informacion</p>
+        
     </div>
 </div> Hello Matias, I'm your home 
 
