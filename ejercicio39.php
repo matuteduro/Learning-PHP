@@ -9,4 +9,6 @@ $archivoaCrear= fopen($nombreArchivo,"w");
 fwrite($archivoaCrear, $contenidoArchivo);
 
 fclose($archivoaCrear);
+
+
 ?>

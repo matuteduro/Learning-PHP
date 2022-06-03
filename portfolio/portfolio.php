@@ -1,4 +1,12 @@
 <?php include("header.php"); ?>
+<?php include("connect.php");?>
+<?php
+$objconnect= new connect();
+
+$sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (NULL, 'Proyecto 1', 'imagen1.jpg', 'Es uno de los primeros proyectos');";
+
+$objconnect->ejecutar($sql);
+?>
 <br/>
 
 <div class="container">
