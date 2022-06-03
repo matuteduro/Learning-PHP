@@ -12,6 +12,14 @@ $sql="INSERT INTO `proyectos` (`id`, `nombre`, `imagen`, `descripcion`) VALUES (
 $objConexion->ejecutar($sql);
 }
 
+if($_GET){
+    $id=$_GET['borrar'];
+    $objConexion= new conexion();
+    $sql="DELETE FROM `proyectos` WHERE `proyectos`.`id` =".$_GET['borrar'];
+    $objConexion->ejecutar($sql);
+    
+}
+
 $objConexion= new conexion();
 $proyectos=$objConexion->consultar("SELECT * FROM `proyectos`");
 
@@ -55,11 +63,11 @@ Imagen del proyecto: <input class="form-control" type="file" name="archivo" id="
     <tbody>
         <?php foreach ($proyectos as $proyecto){?>
         <tr>
-        <td><?php echo $proyecto['id'] ?></td>
-        <td><?php echo $proyecto['nombre'] ?></td>
-        <td><?php echo $proyecto['imagen'] ?></td>
-        <td><?php echo $proyecto['descripcion'] ?></td>
-        <td> <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a> </td>
+        <td><?php echo $proyecto['id']; ?></td>
+        <td><?php echo $proyecto['nombre']; ?></td>
+        <td><?php echo $proyecto['imagen']; ?></td>
+        <td><?php echo $proyecto['descripcion']; ?></td>
+        <td> <a name="" id="" class="btn btn-danger" href="?borrar=<?php echo $proyecto['id'] ?>">nEliminar</a> </td>
         </tr>
     <?php } ?>
     </tbody>
